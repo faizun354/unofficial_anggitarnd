@@ -509,7 +509,7 @@ export default function App() {
               transition={{ delay: 0.3, duration: 0.7 }}
               className="font-serif text-4xl md:text-6xl font-bold text-brand-on-surface leading-tight"
             >
-              Congratulations on Your <span className="italic text-brand-primary underline decoration-brand-primary-container/80 decoration-wavy underline-offset-4"></span>🤍
+              Congratulations..<span className="italic text-brand-primary underline decoration-brand-primary-container/80 decoration-wavy underline-offset-4"></span>🤍
             </motion.h1>
 
             <motion.p 
@@ -518,7 +518,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="font-sans text-brand-on-surface-variant font-medium text-base md:text-lg max-w-xl mx-auto leading-relaxed"
             >
-              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, audio dinyalain dulu dan pencet love putih...
+              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih tunggu sampai audinya bunyi...
             </motion.p>
 
             <motion.div 
