@@ -319,7 +319,7 @@ export default function App() {
       title: "Awal dari mimpi",
       desc: "Langkah awal yg masih bnyak keraguan, mulai berdamai dengan keadaan, dan mencoba mengenal dunia baru",
       icon: <BookOpen className="w-5 h-5 text-brand-primary" />,
-      mainImg: "/assets/ospek.png",
+      mainImg: "/ospek.png",
       alt: "Pondok studi pertama & buku riset awal"
     },
     {
@@ -327,7 +327,7 @@ export default function App() {
       title: "Berani dan berkembang",
       desc: "Belajar banyak hal baru, mengenal lebih banyak orang, meski sempat di titik terendah, tapi ternyata masih bisa bangkit dan bertahan",
       icon: <Heart className="w-5 h-5 text-brand-primary" fill="currentColor" />,
-      mainImg: "/assets/sinau.png",
+      mainImg: "/sinau.png",
       alt: "Meja belajar penuh buku dan laptop"
     },
     {
@@ -335,7 +335,7 @@ export default function App() {
       title: "Terhubung bersama",
       desc: "menemukan banyak hal yang ternyata bisa disyukuri, berbagi bahagia bersama yang ternyata membuat bahagia itu lebih bermakna",
       icon: <Laptop className="w-5 h-5 text-brand-primary" />,
-      mainImg: "/assets/volu.png",
+      mainImg: "/volu.png",
       alt: "Latar jalan kampus yang indah berkilau"
     },
     {
@@ -344,9 +344,9 @@ export default function App() {
       desc: "Melangkah lebih jauh dengan menjawab semua tantangan, dan meski berat rasanya, tapi berhasil melewatinya dengan sempurna",
       icon: <Flower2 className="w-5 h-5 text-brand-primary" />,
       images: [
-        "/assets/pkl.jpg",
-        "/assets/pkl2.jpg",
-        "/assets/pkl3.jpg"
+        "/pkl.jpg",
+        "/pkl2.jpg",
+        "/pkl3.jpg"
       ],
       alt: "Momen perjuangan dan keberhasilan riset"
     },
@@ -355,7 +355,7 @@ export default function App() {
       title: "Akhirnya..!",
       desc: "Ujung dari perjalanan ini ternyata sudah didepan mata, dan kamu bisa menaklukannya dengan hebat, selamattt banggaa bangettt",
       icon: <GraduationCap className="w-5 h-5 text-white" />,
-      mainImg: "/assets/sempro5.png",
+      mainImg: "/sempro5.png",
       alt: "Topi toga, rangkaian bunga, dan gulungan ijazah kemenangan"
     }
   ];
@@ -365,7 +365,6 @@ export default function App() {
     desc: string;
     images: string[];
     icon: React.ReactNode;
-    subtitle: string;
   }
 
   // Cards state data for stacked interactive block
@@ -374,31 +373,28 @@ export default function App() {
       title:  "favoritku",
       desc: "Kudapati sepotong ingatan tentangmu, perlahan menjadi utuh. Nyatanya, ditempat ramai sekalipun, disaat aku berusaha menyelesaikan tugasku, isi pikiranku tetap fokus pada satu orang favorit yang bersemayam dipikiranku, ~kamu",
       images: [
-        "/assets/cantik.jpg",
-        "/assets/coban.jpg"
+        "/cantik.jpg",
+        "/coban.jpg"
       ],
       icon: <Smile className="w-6 h-6 text-brand-primary" />,
-      subtitle: "Favorite"
     },
     {
       title:  "bersamamu",
       desc: "sejauh apa tentang kita pun tidak membuat rasa iini hilang, dan kerinduan yg kurasakan terus terperangkap dalam ruang gelap yang tidak pernah menemukan jalan keluar, karena tidak ada yang menuntunku untuk beranjak dari sana, yaitu kamu",
       images: [
-        "/assets/atas.jpg",
-        "/assets/bunga.jpg"
+        "/atas.jpg",
+        "/bunga.jpg"
       ],
       icon: <Star className="w-6 h-6 text-brand-primary" />,
-      subtitle: "Together"
     },
     {
       title: "tentang namamu",
       desc: "namamu ku abadikan didalam skripsiku dan sudah kusematkan jg S.T nya wkwk, dan tanggal 0101 itu ku masukkan dalam project kerja pertamaku, karna kamu adalah harapan yang slalu ku semogakan di situasi apapun",
       images: [
-        "/assets/kuning.jpg",
-        "/assets/jatim.jpg"
+        "/kuning.jpg",
+        "/jatim.jpg"
       ],
       icon: <Award className="w-6 h-6 text-brand-primary" />,
-      subtitle: "Memory"
     }
   ];
 
@@ -556,7 +552,7 @@ export default function App() {
               <div 
                 className="aspect-[4/5] rounded-2xl overflow-hidden mb-6 bg-brand-surface-low relative group cursor-zoom-in"
                 onClick={() => setSelectedPhoto({
-                  url: "/assets/sempro2.jpg",
+                  url: "/sempro2.jpg",
                   title: "Proud of You..",
                   year: "2026"
                 })}
@@ -564,7 +560,7 @@ export default function App() {
                 <img 
                   alt="A soft-focus, cinematic portrait of a joyous female graduate in academic regalia, smiling radiantly" 
                   className="w-full h-full object-cover transform duration-500 group-hover:scale-105" 
-                  src="/assets/sempro2.jpg"
+                  src="/sempro2.jpg"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent duration-300" />
@@ -824,7 +820,7 @@ export default function App() {
                             className="w-14 h-14 md:w-16 md:h-16 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary-container/30 cursor-zoom-in group relative"
                             onClick={(e) => {
                               e.stopPropagation();
-                              setSelectedPhoto({ url: img, title: `${card.title}`, year: "2025" });
+                              setSelectedPhoto({ url: img, title: `${card.title}` });
                             }}
                           >
                             <img src={img} alt="Card Preview" className="w-full h-full object-cover transform duration-300 group-hover:scale-110" referrerPolicy="no-referrer" />
@@ -934,7 +930,7 @@ export default function App() {
               <div 
                 className="aspect-[4/5] rounded-2xl overflow-hidden bg-brand-surface-low relative group cursor-zoom-in"
                 onClick={() => setSelectedPhoto({
-                  url: "/assets/bunga.png",
+                  url: "/bunga.png",
                   title: "bunga dengan namamu",
                   year: "2026"
                 })}
@@ -942,7 +938,7 @@ export default function App() {
                 <img 
                   alt="Graduate portrait" 
                   className="w-full h-full object-cover transform duration-500 group-hover:scale-105" 
-                  src="/assets/bunga.png"
+                  src="/bunga.png"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent duration-300" />
