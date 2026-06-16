@@ -344,9 +344,9 @@ export default function App() {
       desc: "Melangkah lebih jauh dengan menjawab semua tantangan, dan meski berat rasanya, tapi berhasil melewatinya dengan sempurna",
       icon: <Flower2 className="w-5 h-5 text-brand-primary" />,
       images: [
-        "/pkl.jpg",
+        "/pkl.png",
         "/pkl2.jpg",
-        "/pkl3.jpg"
+        "/pkl3.png"
       ],
       alt: "Momen perjuangan dan keberhasilan riset"
     },
@@ -518,7 +518,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="font-sans text-brand-on-surface-variant font-medium text-base md:text-lg max-w-xl mx-auto leading-relaxed"
             >
-              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih tunggu sampai audionya bunyi...
+              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih tunggu sampai auidonya bunyi...
             </motion.p>
 
             <motion.div 
