@@ -518,7 +518,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="font-sans text-brand-on-surface-variant font-medium text-base md:text-lg max-w-xl mx-auto leading-relaxed"
             >
-              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih tunggu sampai audinya bunyi...
+              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih tunggu sampai audionya bunyi...
             </motion.p>
 
             <motion.div 
