@@ -1,0 +1,6 @@
+{
+  "name": "Graduation Joy",
+  "description": "A heartfelt graduation tribute and celebration app featuring interactive timeline memories, letters of love, and congratulations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
