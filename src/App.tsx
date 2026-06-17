@@ -380,7 +380,7 @@ export default function App() {
     },
     {
       title:  "bersamamu",
-      desc: "sejauh apa tentang kita pun tidak membuat rasa iini hilang, dan kerinduan yg kurasakan terus terperangkap dalam ruang gelap yang tidak pernah menemukan jalan keluar, karena tidak ada yang menuntunku untuk beranjak dari sana, yaitu kamu",
+      desc: "sejauh apa tentang kita pun tidak membuat rasa ini hilang, dan kerinduan yg kurasakan terus terperangkap dalam ruang gelap yang tidak pernah menemukan jalan keluar, karena tidak ada yang menuntunku untuk beranjak dari sana, yaitu kamu",
       images: [
         "/atas.jpg",
         "/bunga.jpg"
@@ -475,7 +475,7 @@ export default function App() {
       {/* Navigation Shell */}
       <nav id="top-nav" className="fixed top-0 w-full z-50 bg-[#fff8f6]/50 backdrop-blur-xl border-b border-brand-primary-container/20 shadow-sm flex justify-between items-center px-6 md:px-12 py-4 transition-all duration-300">
         <span className="font-serif text-xl md:text-2xl italic font-bold text-brand-primary tracking-tight">
-          Anggita Rindiyantana Assasaudia, S.T
+          Anggita Assasaudia Rindiyantana, S.T
         </span>
         <div className="flex items-center gap-3">
         </div>
@@ -518,7 +518,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="font-sans text-brand-on-surface-variant font-medium text-base md:text-lg max-w-xl mx-auto leading-relaxed"
             >
-              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih tunggu sampai auidonya bunyi...
+              yeayyy akhirnyaa.. selamatt yaa cantikkkk.. sebelum ku ucapin selamat lebih jauh, pencet love putih lanjut scroll sampe audionya bunyi, balik lagi ke atas...
             </motion.p>
 
             <motion.div 
