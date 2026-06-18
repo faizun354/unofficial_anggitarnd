@@ -475,7 +475,7 @@ export default function App() {
       {/* Navigation Shell */}
       <nav id="top-nav" className="fixed top-0 w-full z-50 bg-[#fff8f6]/50 backdrop-blur-xl border-b border-brand-primary-container/20 shadow-sm flex justify-between items-center px-6 md:px-12 py-4 transition-all duration-300">
         <span className="font-serif text-xl md:text-2xl italic font-bold text-brand-primary tracking-tight">
-          Anggita Assasaudia Rindiyantana, S.T
+          Anggita Rindiyantana Assasaudia, S.T
         </span>
         <div className="flex items-center gap-3">
         </div>
@@ -740,7 +740,7 @@ export default function App() {
                       Haii cantikkk, Selamat... Congratss.. bangga bangett akhirnya kamu sampai dititik ini, setelah semua yang terlewat, naik turunnya, susah senangnya, jatuh bangunnya, cape dan lelahnya, akhirnya satu gelar itu tersemat di akhir nama cantikmu
                     </p>
                     <p className="font-serif font-bold italic text-brand-primary pt-4 text-2xl leading-snug">
-                      Anggita Assasaudia Rindiyantana, S.T
+                      Anggita Rindiyantana Assasaudia, S.T
                     </p>
                     <p className="font-sans text-left text-sm md:text-base text-brand-on-surface-variant leading-relaxed mb-4">
                       Jangan lupa berterimakasih pada diri sendiri, yang sudah bertahan sejauh ini, meski yang terjadi seringkali tak sama dengan kehendak hati, kamu layak merayakan ini semua
