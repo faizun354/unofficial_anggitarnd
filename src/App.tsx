@@ -52,6 +52,26 @@ interface FloatingHeart {
 }
 
 export default function App() {
+  // Simple Password Gate State
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    return localStorage.getItem("graduation_unlocked") === "true";
+  });
+  const [passwordInput, setPasswordInput] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const correctPassword = "anggi010104";
+
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (passwordInput.trim() === correctPassword) {
+      localStorage.setItem("graduation_unlocked", "true");
+      setIsUnlocked(true);
+      setPasswordError("");
+    } else {
+      setPasswordError("Password salah, coba lagi yaa 🤍");
+    }
+  };
+
   // Loading & Transition States
   const [loading, setLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(2022);
@@ -104,6 +124,8 @@ export default function App() {
 
   // Register audio event listeners and try autoplay immediately
   useEffect(() => {
+    if (!isUnlocked) return;
+
     audioEngine.onTrackChange = (trackId) => {
       setActiveTrackId(trackId);
     };
@@ -129,7 +151,7 @@ export default function App() {
       document.removeEventListener("scroll", enableAudioOnInteraction);
       window.removeEventListener("touchstart", enableAudioOnInteraction);
     };
-  }, []);
+  }, [isUnlocked]);
 
   // Sync volume with audioEngine
   useEffect(() => {
@@ -138,7 +160,7 @@ export default function App() {
 
   // Handle active section scrolling with high performance viewport targeting
   useEffect(() => {
-    if (loading) return;
+    if (!isUnlocked || loading) return;
 
     const timer = setTimeout(() => {
       const options = {
@@ -173,7 +195,7 @@ export default function App() {
     }, 800); // Small timeout to ensure fully mounted canvas & render nodes
 
     return () => clearTimeout(timer);
-  }, [loading]);
+  }, [isUnlocked, loading]);
 
   // Save guestbook messages to localStorage
   useEffect(() => {
@@ -182,7 +204,7 @@ export default function App() {
 
   // Loading Counter Logic
   useEffect(() => {
-    if (!loading) return;
+    if (!isUnlocked || !loading) return;
     
     const interval = setInterval(() => {
       setLoadingProgress((prev) => {
@@ -209,7 +231,7 @@ export default function App() {
     }, 600);
 
     return () => clearInterval(interval);
-  }, [loading]);
+  }, [isUnlocked, loading]);
 
   // Handle header heart click with interactive particle spawn
   const handleNavHeartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -237,14 +259,16 @@ export default function App() {
 
   // Auto-start music when loading finishes
   useEffect(() => {
+    if (!isUnlocked) return;
+
     if (!loading && !audioMuted) {
       audioEngine.startTrack("hero");
     }
-  }, [loading, audioMuted]);
+  }, [isUnlocked, loading, audioMuted]);
 
   // Add custom random floating hearts for ambient atmosphere
   useEffect(() => {
-    if (!sparklesEnabled) return;
+    if (!isUnlocked || !sparklesEnabled) return;
     const interval = setInterval(() => {
       const newHeart: FloatingHeart = {
         id: Date.now() + Math.random(),
@@ -258,7 +282,7 @@ export default function App() {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [sparklesEnabled]);
+  }, [isUnlocked, sparklesEnabled]);
 
   // Handle Note Submission
   const handleSubmitNote = (e: React.FormEvent) => {
@@ -365,6 +389,7 @@ export default function App() {
     desc: string;
     images: string[];
     icon: React.ReactNode;
+    subtitle: string;
   }
 
   // Cards state data for stacked interactive block
@@ -377,6 +402,7 @@ export default function App() {
         "/coban.jpg"
       ],
       icon: <Smile className="w-6 h-6 text-brand-primary" />,
+      subtitle: "Favorite"
     },
     {
       title:  "bersamamu",
@@ -386,6 +412,7 @@ export default function App() {
         "/bunga.jpg"
       ],
       icon: <Star className="w-6 h-6 text-brand-primary" />,
+      subtitle: "Together"
     },
     {
       title: "tentang namamu",
@@ -395,12 +422,66 @@ export default function App() {
         "/jatim.jpg"
       ],
       icon: <Award className="w-6 h-6 text-brand-primary" />,
+      subtitle: "Memory"
     }
   ];
 
   const handleNextCard = () => {
     setActiveCardIndex((prev) => (prev + 1) % encouragementCards.length);
   };
+
+  if (!isUnlocked) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-[#fff7f8] via-white to-[#ffdce5] flex items-center justify-center px-5 text-center overflow-hidden relative">
+        <div className="absolute -top-20 -left-20 w-52 h-52 bg-pink-200/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-20 w-64 h-64 bg-pink-300/25 rounded-full blur-3xl" />
+
+        <div className="w-full max-w-sm bg-white/85 backdrop-blur-md rounded-3xl shadow-2xl border border-pink-100 p-7 relative z-10">
+          <div className="mb-6">
+            <div className="mx-auto w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-3xl mb-4 shadow-inner">
+              🤍
+            </div>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-pink-400 font-bold mb-2">
+              Private Page
+            </p>
+            <h1 className="font-serif text-3xl font-bold text-pink-500 mb-2">
+              Special Page
+            </h1>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Masukkan password kecil dulu yaa, karena halaman ini dibuat khusus untuk seseorang yang spesial.
+            </p>
+          </div>
+
+          <form onSubmit={handlePasswordSubmit} className="space-y-4">
+            <input
+              type="password"
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+              placeholder="Masukkan password"
+              className="w-full px-4 py-3 rounded-2xl border border-pink-100 bg-white text-center outline-none focus:ring-2 focus:ring-pink-200 text-gray-700"
+            />
+
+            {passwordError && (
+              <p className="text-sm text-pink-500 font-medium">
+                {passwordError}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="w-full py-3 rounded-2xl bg-pink-400 hover:bg-pink-500 text-white font-bold shadow-lg active:scale-95 transition-all"
+            >
+              Buka Halaman 🤍
+            </button>
+          </form>
+
+          <p className="mt-5 text-xs text-gray-400 italic">
+            clue: emmmmmm coba tebak
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-brand-background text-brand-on-surface font-sans overflow-x-hidden selection:bg-brand-primary-container relative">
@@ -820,7 +901,7 @@ export default function App() {
                             className="w-14 h-14 md:w-16 md:h-16 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary-container/30 cursor-zoom-in group relative"
                             onClick={(e) => {
                               e.stopPropagation();
-                              setSelectedPhoto({ url: img, title: `${card.title}` });
+                              setSelectedPhoto({ url: img, title: `${card.title}`, year: "2025" });
                             }}
                           >
                             <img src={img} alt="Card Preview" className="w-full h-full object-cover transform duration-300 group-hover:scale-110" referrerPolicy="no-referrer" />
